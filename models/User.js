@@ -1,4 +1,4 @@
-const mongoose = require("monggoose");
+const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
   name: {
@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema({
   },
   password: {
     type: String,
-    minlength: 100,
+    maxlength: 100,
   },
   lastname: {
     type: String,

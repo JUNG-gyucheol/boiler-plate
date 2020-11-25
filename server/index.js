@@ -29,7 +29,11 @@ mongoose
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
-app.post("api/users/register", (req, res) => {
+app.get("/api/hello", (req, res) => {
+  res.send("안녕하세요!!");
+});
+
+app.post("/api/users/register", (req, res) => {
   //회원가입 할때 필요한 정보들을 client에서 가져오면
   //그것들을 데이터베이스에 넣어준다.
 
@@ -66,7 +70,6 @@ app.post("/api/users/login", (req, res) => {
         //비밀번호까지 같다면 Token을 생성
         user.generateToken((err, user) => {
           if (err) return res.status(400).send(err);
-
           // 토큰을 저장한다. 쿠키 ,로컬스토리지, 세션
           res
             .cookie("x_auth", user.token)
